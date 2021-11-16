@@ -225,11 +225,11 @@ export default {
             this.show = true;
 
             if(this.useAbsolutePositioning) {
-                let setValY = 5
-                let setValX = 5
+                var setValY = 5
+                var setValX = 5
             } else {
-                let setValY = event.clientY
-                let setValX = event.clientX
+                var setValY = event.clientY
+                var setValX = event.clientX
             }
 
             this.$nextTick(() => {
