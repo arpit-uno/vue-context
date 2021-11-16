@@ -18,6 +18,10 @@ export default {
     },
 
     props: {
+        useAbsolutePositioning: {
+            type: Boolean,
+            default: false
+        },
         closeOnClick: {
             type: Boolean,
             default: true
@@ -220,8 +224,16 @@ export default {
             this.data = data;
             this.show = true;
 
+            if(this.useAbsolutePositioning) {
+                let setValY = 5
+                let setValX = 5
+            } else {
+                let setValY = event.clientY
+                let setValX = event.clientX
+            }
+
             this.$nextTick(() => {
-                [this.top, this.left] = this.positionMenu(event.clientY, event.clientX, this.$el);
+                [this.top, this.left] = this.positionMenu(setValY, setValX, this.$el);
 
                 this.$el.focus();
                 this.setItemRoles();
